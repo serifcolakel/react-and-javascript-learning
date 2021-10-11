@@ -24,7 +24,8 @@ function videoDetails(video, callback) {
   });
 }
 
-/* UGLY
+//UGLY Alternative-1
+/* 
 const user = loginUser("serifc@gmail.com", 1235125, (user) => {
   console.log(user);
   //CALLBACK structure
@@ -37,29 +38,26 @@ const user = loginUser("serifc@gmail.com", 1235125, (user) => {
 });
 */
 
-/*Simply UGLY -> BEAuty */
-/*loginUser("serif", "colakel")
+//Simply UGLY -> BEAuty Alternative-2
+/*
+loginUser("serif", "colakel")
   .then((user) => getUserVideos(user.email))
   .then((videos) => videoDetails(videos[0]))
   .then((detail) => console.log(detail));
 */
 
-//Sync Code
-//getting data from YT and FB at the same time
-const yt = new Promise((resolve) => {
-  setTimeout(() => {
-    console.log("getting stuff from YT");
-    resolve({ videos: [1, 2, 3, 4, 5, 6] });
-  }, 2000);
-});
-//süreler farklı olsa bile aynı zamanda getirecek
-const fb = new Promise((resolve) => {
-  setTimeout(() => {
-    console.log("stuff from FB");
-    resolve({ user: "Name" });
-  }, 3000);
-});
+//Async Code Alternative-3 with try catch
+async function displayUser() {
+  try {
+    const loggedUser = await loginUser("serif", 123124);
+    const videos = await getUserVideos(loggedUser.userEmail);
+    const detail = await videoDetails(videos[0]);
+    console.log(detail);
+  } catch (err) {
+    console.log("We could nto get the videos");
+  }
+}
 
-Promise.all([yt, fb]).then((res) => console.log(res));
+displayUser();
 
 console.log("END");
