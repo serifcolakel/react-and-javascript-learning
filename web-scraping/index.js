@@ -13,11 +13,26 @@ axios(url)
     const html = response.data;
     const $ = cheerio.load(html);
     //XXXX : class(.className) or id(#idName)
-    $("XXXX", html).each(function () {
-      const title = $(this).children("tr").text(); //tr, a, div, etc text ise eleman içindeki text
+    $("#gs_res_ccl_mid", html).each(function () {
+      const title =
+        $(this)
+          .children("div")
+          .next()
+          .children("div")
+          .children("h3")
+          .children("a")
+          .text() + " ---- "; //tr, a, div, etc text ise eleman içindeki text
       // Ne aramak istiyorsan yukarıdaki gibi tanımla
+      const url = $(this)
+        .children("div")
+        .next()
+        .children("div")
+        .children("h3")
+        .children("a")
+        .attr("href");
       array.push({
         title,
+        url,
       });
     });
     console.log(array);
