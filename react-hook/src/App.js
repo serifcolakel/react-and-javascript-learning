@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import State from "./components/HookUseState";
 import Effect from "./components/HookUseEffect";
 import Context from "./components/HookUseContext";
+import Reducer from "./components/HookUseReducer";
 
 const themes = {
   dark: {
@@ -29,7 +30,8 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{ padding: 50 }}>
+      <Reducer />
       <button onClick={toggleTheme}>
         {theme === themes.dark ? "Dark Theme" : "Light Theme"}
       </button>
