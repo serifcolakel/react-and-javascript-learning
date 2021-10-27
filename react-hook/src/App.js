@@ -3,6 +3,7 @@ import State from "./components/HookUseState";
 import Effect from "./components/HookUseEffect";
 import Context from "./components/HookUseContext";
 import Reducer from "./components/HookUseReducer";
+import Memo from "./components/HookUseMemo";
 
 const themes = {
   dark: {
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div className="App" style={{ padding: 50 }}>
+      <Memo />
       <Reducer />
       <button onClick={toggleTheme}>
         {theme === themes.dark ? "Dark Theme" : "Light Theme"}
