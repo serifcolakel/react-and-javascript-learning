@@ -4,6 +4,7 @@ import Effect from "./components/HookUseEffect";
 import Context from "./components/HookUseContext";
 import Reducer from "./components/HookUseReducer";
 import Memo from "./components/HookUseMemo";
+import Ref from "./components/HookUseRef";
 
 const themes = {
   dark: {
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="App" style={{ padding: 50 }}>
+      <Ref />
       <Memo />
       <Reducer />
       <button onClick={toggleTheme}>
