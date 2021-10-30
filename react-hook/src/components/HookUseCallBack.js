@@ -17,6 +17,7 @@ const App = () => {
   const addToCart = useCallback((product) => {
     setCart((cart) => [...cart, product]);
   }, []);
+  //useCallback fonksiyonu cachelerken memo ise sadece değeri cacheler******
   //Kullanılan fonksiyonu callBack ile react hatırlar, referans olarak dependency array'a göre işlev yapar
   const emptyCart = useCallback(() => {
     setCart([]);
