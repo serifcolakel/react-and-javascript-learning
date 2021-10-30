@@ -5,7 +5,7 @@ import Context from "./components/HookUseContext";
 import Reducer from "./components/HookUseReducer";
 import Memo from "./components/HookUseMemo";
 import Ref from "./components/HookUseRef";
-
+import CallBack from "./components/HookUseCallBack";
 const themes = {
   dark: {
     background: "#383838",
@@ -33,6 +33,7 @@ function App() {
 
   return (
     <div className="App" style={{ padding: 50 }}>
+      <CallBack />
       <Ref />
       <Memo />
       <Reducer />
